@@ -1,0 +1,25 @@
+CREATE DATABASE Veiculos;
+
+USE Veiculos;
+CREATE TABLE Veiculos
+( 
+idVeiculo INT PRIMARY KEY IDENTITY,
+Marca VARCHAR(200) NOT NULL,
+Cor VARCHAR(200) NOT NULL,
+Placa VARCHAR (200) NOT NULL,
+);
+
+CREATE TABLE Cliente
+(
+idCliente INT PRIMARY KEY IDENTITY,
+idVeiculo INT FOREIGN KEY REFERENCES Veiculos (idVeiculo),
+Telefone VARCHAR(200) NOT NULL,
+Email VARCHAR(200) NOT NULL,
+);
+
+CREATE TABLE Empresa
+(
+idEmpresa INT PRIMARY KEY IDENTITY,
+idCliente INT FOREIGN KEY REFERENCES Cliente (idCliente),
+idVeiculo INT FOREIGN KEY REFERENCES Veiculos (idVeiculo),
+);
